@@ -153,13 +153,17 @@ class Waveform extends Component {
               style={{ color: '#2E9CCA', textAlign: 'center', marginTop: '2%' }}
             >
               {this.props.running &&
-                (this.state.song === this.props.aud
-                  ? 'Listening to : Luna Llena'
-                  : this.state.song === this.props.aud2
-                  ? 'Listening to : Bensound-Dubstep'
-                  : this.state.song === this.props.aud3
-                  ? 'Listening to : Dance Of Spring'
-                  : 'Listening to : Saint Jhn Roses Imanbek')}
+                (this.state.song === this.props.aud ? (
+                  <span>
+                    Listening to : MIAMI'S Number #1 DJ: <br /> Sean G
+                  </span>
+                ) : this.state.song === this.props.aud2 ? (
+                  'Listening to : Bensound-Dubstep'
+                ) : this.state.song === this.props.aud3 ? (
+                  'Listening to : Dance Of Spring'
+                ) : (
+                  'Listening to : Saint Jhn Roses Imanbek'
+                ))}
               {/* ADJUST SPEED */}
             </figcaption>
             {console.log(

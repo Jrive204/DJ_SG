@@ -1,4 +1,7 @@
 import React from 'react';
+import da from './imgs/da.png';
+import sean from './imgs/sean.png';
+import jen from './imgs/jen.png';
 
 const Grid = (props) => {
   const {
@@ -13,6 +16,7 @@ const Grid = (props) => {
   } = props;
 
   let color = ['#E27D60', 'blue', 'red'];
+  let imgz = [`url(${jen})`, `url(${sean})`];
 
   console.log(sum, 'SUM');
 
@@ -20,7 +24,7 @@ const Grid = (props) => {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: `repeat(${numCols},15px)`,
+        gridTemplateColumns: `repeat(${numCols},20px)`,
         justifyContent: 'center',
       }}
       onBlur={() => setSwiping(false)}
@@ -40,19 +44,31 @@ const Grid = (props) => {
               }
             }}
             style={{
-              width: 12,
-              height: 13,
-              backgroundColor:
+              width: 20,
+              height: 21,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              backgroundImage:
                 grid[i][k] && sum > 60
-                  ? sample(color)
+                  ? sample(imgz)
                   : grid[i][k] && sum > 35
-                  ? 'red'
+                  ? `url(${jen})`
                   : grid[i][k] && sum > 15
-                  ? 'blue'
+                  ? `url(${sean})`
                   : grid[i][k]
-                  ? '#E27D60'
+                  ? `url(https://pbs.twimg.com/profile_images/249908723/adxGetMedia_400x400.jpg)`
                   : undefined,
-              border: 'solid 1.3px #5D6D7E',
+              border:
+                grid[i][k] && sum > 60
+                  ? `solid 1.3px ${sample(color)}`
+                  : grid[i][k] && sum > 35
+                  ? 'solid 1.3px blue'
+                  : grid[i][k] && sum > 15
+                  ? 'solid 1.3px red'
+                  : grid[i][k]
+                  ? 'solid 1.3px purple'
+                  : 'solid 1.3px #5D6D7E',
               cursor: isSwiping ? 'copy' : 'pointer',
             }}
           />

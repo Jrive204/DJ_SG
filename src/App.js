@@ -7,10 +7,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Grid from './components/Grid';
 import useWindowDimensions from './components/hooks/useWindowDimensions';
 import CasinoIcon from '@material-ui/icons/Casino';
-import aud from './components/audio/Luna Llena (Live).mp3';
-import aud2 from './components/audio/bensound-dubstep.mp3';
-import aud3 from './components/audio/Jesse Cook Dance Of Spring [Xsongspk.me].mp3';
-import aud4 from './components/audio/Saint Jhn Roses Imanbek [Xsongspk.me].mp3';
+import aud from './components/audio/SeanLiveSET.mp3';
+
 import Waveform from './components/Waveform';
 var sample = require('lodash.sample');
 
@@ -21,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Audio tracks for media-player
-const ranSong = [aud, aud3, aud2, aud4, aud, aud3, aud2, aud4];
+// const ranSong = [aud, aud3, aud2, aud4, aud, aud3, aud2, aud4];
+const ranSong = [aud];
 
 // Operations which run the rules for Game of Life
 const operations = [
@@ -38,8 +37,8 @@ const operations = [
 function App() {
   const { height, width } = useWindowDimensions();
   // Adjusting Width inorder to create a responsive design
-  const numRows = width < 500 ? 20 : 30;
-  const numCols = width < 500 ? 20 : 30;
+  const numRows = width < 500 ? 10 : 20;
+  const numCols = width < 500 ? 15 : 25;
   const widthCheck = width < 500;
   const [running, setrunning] = useState(false);
   const timeRef = useRef(250);
@@ -165,8 +164,8 @@ function App() {
           marginBottom: '0',
         }}
       >
-        Conway's <br />
-        "Game of Life"
+        CoLab Presents: <br /> Sean's <br />
+        Game of Life
       </h1>
       <p
         style={{
@@ -175,11 +174,7 @@ function App() {
           fontWeight: 'bolder',
           fontSize: '15px',
         }}
-      >
-        Generation: <span style={{ color: '#FF4500' }}>{generation}</span>
-        &nbsp; &nbsp; Population: &nbsp;{' '}
-        <span style={{ color: '#FF4500' }}>{sum}</span>
-      </p>
+      ></p>
 
       <section style={{ display: 'flex', justifyContent: 'center' }}>
         <div
@@ -240,8 +235,8 @@ function App() {
         setranSongfromArray={setranSongfromArray}
         running={running}
         aud={aud}
-        aud2={aud2}
-        aud3={aud3}
+        // aud2={aud2}
+        // aud3={aud3}
         resetGrid={resetGrid}
         widthCheck={widthCheck}
         timeRef={timeRef}
