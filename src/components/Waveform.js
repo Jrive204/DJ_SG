@@ -93,6 +93,9 @@ class Waveform extends Component {
   }
 
   handlePlay = () => {
+    const fw = document.querySelector('.fw');
+    fw.classList.toggle('pyro');
+
     this.setState({ playing: !this.state.playing });
     this.waveform.playPause();
     this.props.playAudio();

@@ -156,94 +156,100 @@ function App() {
   console.log(sum, timeRef.current, 'SUM', songRef.current);
   return (
     <>
-      <h1
-        style={{
-          color: '#2E9CCA',
-          textAlign: 'center',
-          fontWeight: 'bolder',
-          marginBottom: '0',
-        }}
-      >
-        CoLab Presents: <br /> Sean's <br />
-        Game of Life
-      </h1>
-      <p
-        style={{
-          color: '#2E9CCA',
-          textAlign: 'center',
-          fontWeight: 'bolder',
-          fontSize: '15px',
-        }}
-      ></p>
+      <div class='fw'>
+        <div class='before'></div>
+        <div class='main'></div>
 
-      <section style={{ display: 'flex', justifyContent: 'center' }}>
-        <div
+        <h1
           style={{
-            display: 'flex',
-            margin: '0 0 1% 0',
-            width: !widthCheck ? '20%' : '50%',
-            justifyContent: !widthCheck ? 'space-evenly' : 'space-between',
+            color: '#2E9CCA',
+            textAlign: 'center',
+            fontWeight: 'bolder',
+            marginBottom: '0',
           }}
         >
-          <IconButton
-            variant='contained'
-            style={{ background: 'darkblue', color: 'white' }}
-            className={classes.button}
-            onClick={() => {
-              const rows = [];
-              for (let i = 0; i < numRows; i++) {
-                rows.push(
-                  Array.from(Array(numCols), () =>
-                    Math.random() > 0.7 ? 1 : 0
-                  )
-                );
-              }
+          CoLab Presents: <br /> Sean's <br />
+          Game of Life
+        </h1>
+        <p
+          style={{
+            color: '#2E9CCA',
+            textAlign: 'center',
+            fontWeight: 'bolder',
+            fontSize: '15px',
+          }}
+        ></p>
 
-              setGrid(rows);
-              setSum(rows.flat().reduce((acc, cv) => acc + cv));
+        <section style={{ display: 'flex', justifyContent: 'center' }}>
+          <div
+            style={{
+              display: 'flex',
+              margin: '0 0 1% 0',
+              width: !widthCheck ? '20%' : '50%',
+              justifyContent: !widthCheck ? 'space-evenly' : 'space-between',
             }}
           >
-            <CasinoIcon fontSize='default' />
-          </IconButton>
-          <IconButton
-            variant='contained'
-            style={{ color: 'white', background: 'red' }}
-            className={classes.button}
-            onClick={resetGrid}
-          >
-            <DeleteIcon fontSize='default' />
-          </IconButton>
-        </div>
-      </section>
-      <Grid
-        setSwiping={setSwiping}
-        grid={grid}
-        isSwiping={isSwiping}
-        produce={produce}
-        setGrid={setGrid}
-        numCols={numCols}
-        sample={sample}
-        sum={sum}
-      />
+            <IconButton
+              variant='contained'
+              style={{ background: 'darkblue', color: 'white' }}
+              className={classes.button}
+              onClick={() => {
+                const rows = [];
+                for (let i = 0; i < numRows; i++) {
+                  rows.push(
+                    Array.from(Array(numCols), () =>
+                      Math.random() > 0.7 ? 1 : 0
+                    )
+                  );
+                }
 
-      <Waveform
-        sample={sample}
-        ranSong={ranSong}
-        runSim={runSim}
-        playAudio={playAudio}
-        ranSongfromArray={ranSongfromArray}
-        setranSongfromArray={setranSongfromArray}
-        running={running}
-        aud={aud}
-        // aud2={aud2}
-        // aud3={aud3}
-        resetGrid={resetGrid}
-        widthCheck={widthCheck}
-        timeRef={timeRef}
-        setSpeed={setSpeed}
-        songRef={songRef}
-        height={height}
-      />
+                setGrid(rows);
+                setSum(rows.flat().reduce((acc, cv) => acc + cv));
+              }}
+            >
+              <CasinoIcon fontSize='default' />
+            </IconButton>
+            <IconButton
+              variant='contained'
+              style={{ color: 'white', background: 'red' }}
+              className={classes.button}
+              onClick={resetGrid}
+            >
+              <DeleteIcon fontSize='default' />
+            </IconButton>
+          </div>
+        </section>
+        <Grid
+          setSwiping={setSwiping}
+          grid={grid}
+          isSwiping={isSwiping}
+          produce={produce}
+          setGrid={setGrid}
+          numCols={numCols}
+          sample={sample}
+          sum={sum}
+        />
+
+        <Waveform
+          sample={sample}
+          ranSong={ranSong}
+          runSim={runSim}
+          playAudio={playAudio}
+          ranSongfromArray={ranSongfromArray}
+          setranSongfromArray={setranSongfromArray}
+          running={running}
+          aud={aud}
+          // aud2={aud2}
+          // aud3={aud3}
+          resetGrid={resetGrid}
+          widthCheck={widthCheck}
+          timeRef={timeRef}
+          setSpeed={setSpeed}
+          songRef={songRef}
+          height={height}
+        />
+        <div class='after'></div>
+      </div>
     </>
   );
 }
